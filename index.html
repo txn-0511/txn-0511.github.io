@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wedding of Groom & Bride</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: #f7f2f8;
+      font-family: 'Arial', sans-serif;
+      color: #5e3c58;
+    }
+
+    .header {
+      background: linear-gradient(45deg, #ffb6c1, #ffcccb);
+      padding: 50px 0;
+      text-align: center;
+      color: white;
+    }
+
+    .header h1 {
+      font-size: 3em;
+      font-weight: bold;
+    }
+
+    .header p {
+      font-size: 1.5em;
+      font-style: italic;
+    }
+
+    .info-section {
+      padding: 30px 0;
+      text-align: center;
+    }
+
+    .info-section h2 {
+      color: #d75a7b;
+      font-size: 2.5em;
+    }
+
+    .card {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      margin: 20px;
+      padding: 20px;
+    }
+
+    .footer {
+      background: #ffb6c1;
+      padding: 20px;
+      text-align: center;
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header Section -->
+  <div class="header">
+    <h1>Welcome to the Wedding of Groom & Bride</h1>
+    <p>Join us in celebrating love and happiness!</p>
+  </div>
+
+  <!-- Groom and Bride Section -->
+  <section class="info-section">
+    <div class="container">
+      <div class="row">
+        <!-- Groom's Card -->
+        <div class="col-md-6">
+          <div class="card">
+            <h2>Groom's Name</h2>
+            <p>A brief introduction about the Groom. He is a kind, loving person with a great sense of humor.</p>
+            <p><strong>Groom's Party: </strong> 6 PM, 123 Groom Street, Cityville</p>
+            <p><a href="#" onclick="showQRCode('groomQRCode', 'https://example.com/groom')">Show Groom's QR Code</a></p>
+            <div id="groomQRCode"></div>
+          </div>
+        </div>
+        <!-- Bride's Card -->
+        <div class="col-md-6">
+          <div class="card">
+            <h2>Bride's Name</h2>
+            <p>A brief introduction about the Bride. She is compassionate, strong, and full of life.</p>
+            <p><strong>Bride's Party: </strong> 5 PM, 456 Bride Avenue, Lovetown</p>
+            <p><a href="#" onclick="showQRCode('brideQRCode', 'https://example.com/bride')">Show Bride's QR Code</a></p>
+            <div id="brideQRCode"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <div class="footer">
+    <p>We can't wait to celebrate with you! © Groom & Bride Wedding 2024</p>
+  </div>
+
+  <!-- Inline JS for QR Code -->
+  <script>
+    function showQRCode(elementId, url) {
+      document.getElementById(elementId).innerHTML = '<img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=' + url + '" alt="QR Code">';
+    }
+  </script>
+</body>
+
+</html>
