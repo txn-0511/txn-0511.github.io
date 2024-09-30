@@ -4,25 +4,61 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Wedding of Groom & Bride</title>
+  <title>Wedding of Bride & Groom</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.14/fullpage.min.css">
   <style>
     body {
-      background: #f7f2f8;
-      font-family: 'Arial', sans-serif;
-      color: #5e3c58;
+      font-family: 'Georgia', serif;
+      color: #4b2c41;
+      background-color: #f9f3f6;
+      overflow: hidden; /* Prevent default scrolling */
+    }
+
+    /* Loading screen */
+    #loading {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #ffebee;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 9999;
+    }
+
+    #loading h1 {
+      font-size: 2em;
+      color: #d32f2f;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    .section {
+      text-align: center;
+      padding: 100px 0;
     }
 
     .header {
-      background: linear-gradient(45deg, #ffb6c1, #ffcccb);
+      background: linear-gradient(45deg, #ffcccb, #ffe5d4);
       padding: 50px 0;
-      text-align: center;
-      color: white;
+      animation: fadeIn 1s ease-in-out;
     }
 
     .header h1 {
-      font-size: 3em;
+      font-size: 3.5em;
       font-weight: bold;
+      color: #4b2c41;
     }
 
     .header p {
@@ -30,78 +66,241 @@
       font-style: italic;
     }
 
-    .info-section {
-      padding: 30px 0;
-      text-align: center;
-    }
-
-    .info-section h2 {
-      color: #d75a7b;
-      font-size: 2.5em;
+    .container img {
+      border-radius: 50%;
+      width: 150px;
+      height: 150px;
     }
 
     .card {
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
       margin: 20px;
-      padding: 20px;
+      border: none;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .bank-info img {
+      width: 150px;
+      height: 150px;
+      margin-bottom: 20px;
+    }
+
+    .qr-code {
+      text-align: center;
+    }
+
+    .gallery img {
+      border-radius: 5px;
+      margin: 10px;
+      transition: transform 0.3s;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.1);
+    }
+
+    .thank-you h1 {
+      color: #4b2c41;
+      animation: fadeIn 1s ease-in-out;
     }
 
     .footer {
-      background: #ffb6c1;
+      background-color: #ffcccb;
+      color: #4b2c41;
       padding: 20px;
-      text-align: center;
-      color: white;
+    }
+
+    @media (max-width: 768px) {
+      .header h1 {
+        font-size: 2.5em;
+      }
     }
   </style>
 </head>
 
 <body>
-  <!-- Header Section -->
-  <div class="header">
-    <h1>Welcome to the Wedding of Groom & Bride</h1>
-    <p>Join us in celebrating love and happiness!</p>
+  <!-- Loading Splash Screen -->
+  <div id="loading">
+    <h1>Loading... Please wait!</h1>
   </div>
 
-  <!-- Groom and Bride Section -->
-  <section class="info-section">
-    <div class="container">
-      <div class="row">
-        <!-- Groom's Card -->
-        <div class="col-md-6">
-          <div class="card">
-            <h2>Groom's Name</h2>
-            <p>A brief introduction about the Groom. He is a kind, loving person with a great sense of humor.</p>
-            <p><strong>Groom's Party: </strong> 6 PM, 123 Groom Street, Cityville</p>
-            <p><a href="#" onclick="showQRCode('groomQRCode', 'https://example.com/groom')">Show Groom's QR Code</a></p>
-            <div id="groomQRCode"></div>
+  <!-- FullPage.js Structure -->
+  <div id="fullpage">
+    <!-- Page 1: Welcome Intro -->
+    <div class="section header">
+      <h1>Welcome to the Wedding of Bride & Groom</h1>
+      <p>Join us in celebrating love and happiness!</p>
+      <img src="https://via.placeholder.com/150?text=Couple" alt="Couple Image">
+    </div>
+
+    <!-- Page 2: Groom and Bride Introduction -->
+    <div class="section">
+      <div class="container">
+        <div class="row">
+          <!-- Groom Section -->
+          <div class="col-md-6">
+            <div class="card">
+              <img src="https://via.placeholder.com/200?text=Groom" alt="Groom Avatar">
+              <h2>Groom's Name</h2>
+              <p>A brief introduction about the Groom.</p>
+            </div>
           </div>
-        </div>
-        <!-- Bride's Card -->
-        <div class="col-md-6">
-          <div class="card">
-            <h2>Bride's Name</h2>
-            <p>A brief introduction about the Bride. She is compassionate, strong, and full of life.</p>
-            <p><strong>Bride's Party: </strong> 5 PM, 456 Bride Avenue, Lovetown</p>
-            <p><a href="#" onclick="showQRCode('brideQRCode', 'https://example.com/bride')">Show Bride's QR Code</a></p>
-            <div id="brideQRCode"></div>
+          <!-- Bride Section -->
+          <div class="col-md-6">
+            <div class="card">
+              <img src="https://via.placeholder.com/200?text=Bride" alt="Bride Avatar">
+              <h2>Bride's Name</h2>
+              <p>A brief introduction about the Bride.</p>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </section>
 
-  <!-- Footer Section -->
-  <div class="footer">
-    <p>We can't wait to celebrate with you! © Groom & Bride Wedding 2024</p>
+    <!-- Page 3: Party Information -->
+    <div class="section bg-light">
+      <h1>Party Information</h1>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card">
+            <h2>Groom's Party</h2>
+            <p>6 PM, 123 Groom Street</p>
+            <a href="https://maps.google.com?q=123+Groom+Street" target="_blank" class="btn btn-primary">View on Google Maps</a>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card">
+            <h2>Bride's Party</h2>
+            <p>5 PM, 456 Bride Avenue</p>
+            <a href="https://maps.google.com?q=456+Bride+Avenue" target="_blank" class="btn btn-primary">View on Google Maps</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Page 4: Luck Money (Bank Account Information) -->
+    <div class="section">
+      <h1>Luck Money & Gifts</h1>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card bank-info">
+            <h2>Groom's Account</h2>
+            <p>Account Number: 1234-5678-9101</p>
+            <p>Bank Name: Wedding Bank</p>
+            <div class="qr-code">
+              <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://bank.example.com" alt="Groom QR Code">
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card bank-info">
+            <h2>Bride's Account</h2>
+            <p>Account Number: 0987-6543-2100</p>
+            <p>Bank Name: Wedding Bank</p>
+            <div class="qr-code">
+              <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://bank.example.com" alt="Groom QR Code">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Page 5: Gallery -->
+    <div class="section">
+      <h1>Gallery</h1>
+      <div class="row gallery">
+        <div class="col-md-3">
+          <img src="https://via.placeholder.com/200?text=Gallery+1" alt="Gallery Image" data-bs-toggle="modal" data-bs-target="#imageModal1">
+        </div>
+        <div class="col-md-3">
+          <img src="https://via.placeholder.com/200?text=Gallery+2" alt="Gallery Image" data-bs-toggle="modal" data-bs-target="#imageModal2">
+        </div>
+        <div class="col-md-3">
+          <img src="https://via.placeholder.com/200?text=Gallery+3" alt="Gallery Image" data-bs-toggle="modal" data-bs-target="#imageModal3">
+        </div>
+        <div class="col-md-3">
+          <img src="https://via.placeholder.com/200?text=Gallery+4" alt="Gallery Image" data-bs-toggle="modal" data-bs-target="#imageModal4">
+        </div>
+        <div class="col-md-3">
+          <img src="https://via.placeholder.com/200?text=Gallery+5" alt="Gallery Image" data-bs-toggle="modal" data-bs-target="#imageModal5">
+        </div>
+        <div class="col-md-3">
+          <img src="https://via.placeholder.com/200?text=Gallery+6" alt="Gallery Image" data-bs-toggle="modal" data-bs-target="#imageModal6">
+        </div>
+        <div class="col-md-3">
+          <img src="https://via.placeholder.com/200?text=Gallery+7" alt="Gallery Image" data-bs-toggle="modal" data-bs-target="#imageModal7">
+        </div>
+        <div class="col-md-3">
+          <img src="https://via.placeholder.com/200?text=Gallery+8" alt="Gallery Image" data-bs-toggle="modal" data-bs-target="#imageModal8">
+        </div>
+      </div>
+
+      <!-- Modal Structure for Gallery Images -->
+      <div class="modal fade" id="imageModal1" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="imageModalLabel">Gallery Image 1</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <img src="https://via.placeholder.com/600?text=Gallery+Image+1" alt="Gallery Image" class="img-fluid">
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Repeat for other modals -->
+      <!-- Example for Modal 2 -->
+      <div class="modal fade" id="imageModal2" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="imageModalLabel">Gallery Image 2</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <img src="https://via.placeholder.com/600?text=Gallery+Image+2" alt="Gallery Image" class="img-fluid">
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Add additional modals here -->
+
+    </div>
+
+    <!-- Page 6: Thank You Page -->
+    <div class="section thank-you">
+      <h1>Thank You for Joining Us!</h1>
+      <p>We appreciate your love and support!</p>
+    </div>
   </div>
 
-  <!-- Inline JS for QR Code -->
+  <footer class="footer text-center">
+    <p>&copy; 2024 Wedding of Bride & Groom. All rights reserved.</p>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.14/fullpage.min.js"></script>
   <script>
-    function showQRCode(elementId, url) {
-      document.getElementById(elementId).innerHTML = '<img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=' + url + '" alt="QR Code">';
-    }
+    // Initialize FullPage.js
+    new fullpage('#fullpage', {
+      autoScrolling: true,
+      navigation: true,
+      scrollBar: false,
+      keyboardScrolling: true, // Enable keyboard arrow navigation
+      afterLoad: function (origin, destination, direction) {
+        // Hide loading screen after the first section
+        if (destination.index === 0) {
+          document.getElementById('loading').style.display = 'none';
+        }
+      }
+    });
   </script>
 </body>
 
