@@ -1,7 +1,0 @@
-<!-- Example: public/images/couple-placeholder.svg -->
-<svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
-  <rect width="200" height="200" fill="#ffcccb"/>
-  <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="#4b2c41" font-size="20">
-    Couple Image
-  </text>
-</svg>
